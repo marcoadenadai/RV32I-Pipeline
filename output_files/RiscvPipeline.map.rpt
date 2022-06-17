@@ -1,5 +1,5 @@
 Analysis & Elaboration report for RiscvPipeline
-Fri Jun 17 01:24:39 2022
+Fri Jun 17 02:30:30 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Fri Jun 17 01:24:39 2022       ;
+; Analysis & Elaboration Status      ; Successful - Fri Jun 17 02:30:30 2022       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; RiscvPipeline                               ;
 ; Top-level Entity Name              ; PROCESSADOR                                 ;
@@ -171,7 +171,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Jun 17 01:24:22 2022
+    Info: Processing started: Fri Jun 17 02:30:17 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RiscvPipeline -c RiscvPipeline --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -197,10 +197,12 @@ Info (12127): Elaborating entity "PROCESSADOR" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at PROCESSADOR.vhdl(27): object "ROM_INSTRUCTION" assigned a value but never read File: C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl Line: 27
 Info (12128): Elaborating entity "PC" for hierarchy "PC:PC_C0" File: C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl Line: 44
 Info (12128): Elaborating entity "ROM" for hierarchy "ROM:ROM_C1" File: C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl Line: 45
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4773 megabytes
-    Info: Processing ended: Fri Jun 17 01:24:39 2022
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:35
+Warning (10036): Verilog HDL or VHDL warning at ROM.vhdl(24): object "addr_in" assigned a value but never read File: C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl Line: 24
+Warning (10631): VHDL Process Statement warning at ROM.vhdl(39): inferring latch(es) for signal or variable "result", which holds its previous value in one or more paths through the process File: C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl Line: 39
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4766 megabytes
+    Info: Processing ended: Fri Jun 17 02:30:30 2022
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:27
 
 

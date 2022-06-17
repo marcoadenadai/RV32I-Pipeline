@@ -12,38 +12,38 @@
 # 
 # vcom -93 -work work {C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM_PACKAGE.vhdl}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:24:54 on Jun 17,2022
+# Start time: 02:30:41 on Jun 17,2022
 # vcom -reportprogress 300 -93 -work work C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM_PACKAGE.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package ROM_PACKAGE
-# End time: 01:24:54 on Jun 17,2022, Elapsed time: 0:00:00
+# End time: 02:30:42 on Jun 17,2022, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:24:54 on Jun 17,2022
+# Start time: 02:30:42 on Jun 17,2022
 # vcom -reportprogress 300 -93 -work work C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity ROM
 # -- Compiling architecture ROM_arch of ROM
-# End time: 01:24:54 on Jun 17,2022, Elapsed time: 0:00:00
+# End time: 02:30:42 on Jun 17,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PC_PACKAGE.vhdl}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:24:54 on Jun 17,2022
+# Start time: 02:30:42 on Jun 17,2022
 # vcom -reportprogress 300 -93 -work work C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PC_PACKAGE.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package PC_PACKAGE
-# End time: 01:24:55 on Jun 17,2022, Elapsed time: 0:00:01
+# End time: 02:30:42 on Jun 17,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PC.vhdl}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:24:55 on Jun 17,2022
+# Start time: 02:30:42 on Jun 17,2022
 # vcom -reportprogress 300 -93 -work work C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PC.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -52,21 +52,21 @@
 # -- Loading package STD_LOGIC_SIGNED
 # -- Compiling entity PC
 # -- Compiling architecture PCArch of PC
-# End time: 01:24:55 on Jun 17,2022, Elapsed time: 0:00:00
+# End time: 02:30:42 on Jun 17,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/REGPIPE_IF_DF_PACKAGE.vhdl}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:24:55 on Jun 17,2022
+# Start time: 02:30:42 on Jun 17,2022
 # vcom -reportprogress 300 -93 -work work C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/REGPIPE_IF_DF_PACKAGE.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package REGPIPE_IF_DF_PACKAGE
-# End time: 01:24:55 on Jun 17,2022, Elapsed time: 0:00:00
+# End time: 02:30:42 on Jun 17,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:24:55 on Jun 17,2022
+# Start time: 02:30:43 on Jun 17,2022
 # vcom -reportprogress 300 -93 -work work C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -76,12 +76,12 @@
 # -- Loading package REGPIPE_IF_DF_PACKAGE
 # -- Compiling entity PROCESSADOR
 # -- Compiling architecture PROCESSADOR_ARCH of PROCESSADOR
-# End time: 01:24:55 on Jun 17,2022, Elapsed time: 0:00:00
+# End time: 02:30:43 on Jun 17,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 vsim work.processador
 # vsim work.processador 
-# Start time: 01:25:05 on Jun 17,2022
+# Start time: 02:30:48 on Jun 17,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -95,24 +95,37 @@ vsim work.processador
 # Loading work.rom(rom_arch)
 wave create -driver freeze -pattern clock -initialvalue 0 -period 100ps -dutycycle 50 -starttime 0ps -endtime 1000ps sim:/processador/CLK
 # Editable Wave items are not compatible with the wave window's standard undo-redo.  Standard undo-redo has been disabled.
+wave create -driver freeze -pattern clock -initialvalue 0 -period 100ps -dutycycle 50 -starttime 0ps -endtime 1000ps sim:/processador/RESET
 wave create -driver freeze -pattern constant -value 0 -starttime 0ps -endtime 1000ps sim:/processador/RESET
-wave edit change_value -start 0ps -end 68ps -value 1 Edit:/processador/RESET
 add wave -position end  sim:/processador/PC_OUT
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: Marco  Hostname: DESKTOP-SSTGLO4  ProcessID: 12972
-#           Attempting to use alternate WLF file "./wlftczmf3g".
+#           Attempting to use alternate WLF file "./wlftfs2c43".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftczmf3g
+#           Using alternate file: ./wlftfs2c43
 add wave -position end  sim:/processador/ROM_INSTRUCTION
-add wave -position end  sim:/processador/PC_NEXT
-add wave -position end  sim:/processador/PC_NEXT
-add wave -position end  sim:/processador/ROM_INSTRUCTION
+wave edit change_value -start 0ps -end 72ps -value 1 Edit:/processador/RESET
 run -all
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 0  Instance: /processador/PC_C0
 # ** Failure: unreachable
-#    Time: 50 ps  Iteration: 1  Process: /processador/ROM_C1/line__34 File: C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl
-# Break in Process line__34 at C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl line 54
+#    Time: 0 ps  Iteration: 1  Process: /processador/ROM_C1/line__39 File: C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl
+# Break in Process line__39 at C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl line 59
 run -all
-# End time: 01:27:15 on Jun 17,2022, Elapsed time: 0:02:10
-# Errors: 1, Warnings: 3
+# ** Failure: unreachable
+#    Time: 50 ps  Iteration: 1  Process: /processador/ROM_C1/line__39 File: C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl
+# Break in Process line__39 at C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl line 59
+run -all
+# ** Failure: unreachable
+#    Time: 50 ps  Iteration: 3  Process: /processador/ROM_C1/line__39 File: C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl
+# Break in Process line__39 at C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl line 59
+run -all
+run -all
+# 
+# Internal Error: In tclprim_ApplyStimulus for /processador/CLK "Time value must be greater than "now": 1000 ps
+# ** UI-Msg: (vsim-4004) The -cancel option requires a time period argument.
+# Usage: force [-deposit | -drive | -freeze] [-cancel <period>] [-repeat <period>] <item_name> <value> [<time>] [, <value> <time> ...]
+# "
+# Internal Error: In tclprim_ApplyStimulus for /processador/RESET ""
+# End time: 02:34:17 on Jun 17,2022, Elapsed time: 0:03:29
+# Errors: 3, Warnings: 3

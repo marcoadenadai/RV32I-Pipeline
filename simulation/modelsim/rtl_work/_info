@@ -10,7 +10,7 @@ z2
 cModel Technology
 Z0 dC:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/simulation/modelsim
 Epc
-Z1 w1655437634
+Z1 w1655442280
 Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z3 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
@@ -25,9 +25,9 @@ VM7RKOl?K4HS4KNc?zOnCg3
 !s100 _<=FHiSD`k>i2fRhd6@;C2
 Z8 OV;C;2020.1;71
 31
-Z9 !s110 1655439895
+Z9 !s110 1655443842
 !i10b 1
-Z10 !s108 1655439895.000000
+Z10 !s108 1655443842.000000
 Z11 !s90 -reportprogress|300|-93|-work|work|C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PC.vhdl|
 Z12 !s107 C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PC.vhdl|
 !i113 1
@@ -70,41 +70,41 @@ R8
 31
 R9
 !i10b 1
-Z15 !s108 1655439894.000000
+R10
 !s90 -reportprogress|300|-93|-work|work|C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PC_PACKAGE.vhdl|
 !s107 C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PC_PACKAGE.vhdl|
 !i113 1
 R13
 R14
 Eprocessador
-Z16 w1655438748
-Z17 DPx4 work 21 regpipe_if_df_package 0 22 GRnYhzDXL7CDhW>=Bb;Al1
-Z18 DPx4 work 11 rom_package 0 22 CV4mb_5TMHnc7W<z;cIZG0
-Z19 DPx4 work 10 pc_package 0 22 c6C0W_bR_`<j=Q:RKESPQ2
+Z15 w1655438748
+Z16 DPx4 work 21 regpipe_if_df_package 0 22 GRnYhzDXL7CDhW>=Bb;Al1
+Z17 DPx4 work 11 rom_package 0 22 CV4mb_5TMHnc7W<z;cIZG0
+Z18 DPx4 work 10 pc_package 0 22 c6C0W_bR_`<j=Q:RKESPQ2
 R4
 R5
 !i122 5
 R0
-Z20 8C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl
-Z21 FC:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl
+Z19 8C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl
+Z20 FC:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl
 l0
 L11 1
 V3fbI4:gL4]CRFj]nVWb`K3
 !s100 c:NS78Rl;7ZVdRO>;KJoh3
 R8
 31
-R9
+Z21 !s110 1655443843
 !i10b 1
-R10
-Z22 !s90 -reportprogress|300|-93|-work|work|C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl|
+Z22 !s108 1655443843.000000
+Z23 !s90 -reportprogress|300|-93|-work|work|C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl|
 !s107 C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl|
 !i113 1
 R13
 R14
 Aprocessador_arch
+R16
 R17
 R18
-R19
 R4
 R5
 DEx4 work 11 processador 0 22 3fbI4:gL4]CRFj]nVWb`K3
@@ -115,11 +115,11 @@ V=kBNfC2O=Q;EJVAR7bFd=2
 !s100 ;m:IOjWcYGHajon5IheUX2
 R8
 31
-R9
+R21
 !i10b 1
-R10
 R22
-Z23 !s107 C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl|
+R23
+Z24 !s107 C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/PROCESSADOR.vhdl|
 !i113 1
 R13
 R14
@@ -146,22 +146,22 @@ R10
 R13
 R14
 Erom
-Z24 w1655439819
+Z25 w1655443764
 R4
 R5
 !i122 1
 R0
-Z25 8C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl
-Z26 FC:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl
+Z26 8C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl
+Z27 FC:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl
 l0
 L4 1
 VoCEMdj@Nhn9fzebEYOz]U2
 !s100 ]ezT5?74>Z]fUoQMRZL1K1
 R8
 31
-Z27 !s110 1655439894
+R9
 !i10b 1
-R15
+R10
 Z28 !s90 -reportprogress|300|-93|-work|work|C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl|
 Z29 !s107 C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM.vhdl|
 !i113 1
@@ -172,15 +172,15 @@ R4
 R5
 DEx4 work 3 rom 0 22 oCEMdj@Nhn9fzebEYOz]U2
 !i122 1
-l19
-L13 47
-VTmil;WP:SkS12HZ@fE6IJ0
-!s100 KUEgVcIab:V954?g<[DfV3
+l18
+L13 54
+VM;h8G>9Cg8`Vc?J>oe71T0
+!s100 7;8mXE<el?E7i96=5lX7i2
 R8
 31
-R27
+R9
 !i10b 1
-R15
+R10
 R28
 R29
 !i113 1
@@ -200,9 +200,9 @@ VCV4mb_5TMHnc7W<z;cIZG0
 !s100 HVI]4QzBg5>9N[eb_[W8C1
 R8
 31
-R27
+R9
 !i10b 1
-R15
+!s108 1655443841.000000
 !s90 -reportprogress|300|-93|-work|work|C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM_PACKAGE.vhdl|
 !s107 C:/Users/Marco/Documents/T2 - RV32I Pipeline no VHDL/Github/RV32I-Pipeline/ROM_PACKAGE.vhdl|
 !i113 1
