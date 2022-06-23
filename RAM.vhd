@@ -1,0 +1,35 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+USE ieee.std_logic_signed.all;
+
+ENTITY RAM IS
+    PORT(
+		  CLOCK			: IN STD_LOGIC;
+		  RESET			: IN STD_LOGIC;
+		  MEM_WRITE    : IN STD_LOGIC;
+		  MEM_READ		: IN STD_LOGIC;
+        ADDR			: IN UNSIGNED(31 DOWNTO 0);
+		  WRITE_DATA   : IN STD_LOGIC_VECTOR(31 DOWNTO 0);	
+        MEM_OUT		: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		 ); 
+END ENTITY;
+
+ARCHITECTURE RAM_Arch OF RAM IS
+    TYPE RAM_VET IS ARRAY (0 TO 63) OF STD_LOGIC_VECTOR (31 DOWNTO 0);  -- 64 X 32 BITS
+	 SIGNAL MEMORIA : RAM_VET;
+	 
+BEGIN
+	PROCESS(ADDR, clock)
+	BEGIN
+		IF rising_edge(CLOCK) THEN -- Escreve ba descida de clock --CONFERIR DPS SE DA CERTO (SE NÃO DER MUDAR PARA 1)
+			IF MEM_WRITE = '1' THEN 
+				MEMORIA(to_integer(ADDR)) <= WRITE_DATA;
+			ELSE
+				IF MEM_READ = '1' THEN
+					MEM_OUT <= MEMORIA(to_integer(ADDR));
+				END IF;
+			END IF;
+		END IF;
+	END PROCESS;
+END ARCHITECTURE;
