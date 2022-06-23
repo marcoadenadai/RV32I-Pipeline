@@ -1,7 +1,10 @@
 LIBRARY ieee;
+library STD;
 USE ieee.std_logic_1164.all;
 USE ieee.std_logic_signed.all;
 use ieee.numeric_std.all;
+use STD.textio.all; 
+use IEEE.std_logic_textio.all;  
 
 ENTITY BRANCH_COMPARE IS
    PORT (
@@ -16,80 +19,77 @@ END ENTITY;
 
 ARCHITECTURE BRANCH_COMPARE_Arch OF BRANCH_COMPARE IS
 	
-	SIGNAL SUB_S  : SIGNED(31 DOWNTO 0);
-	SIGNAL SUB_U  : UNSIGNED(31 DOWNTO 0);
-	
-	--SIGNAL OP1_UNS  : unsigned(31 DOWNTO 0);
-	--SIGNAL OP2_UNS  : unsigned(31 DOWNTO 0);
-	
-	
-	
 	BEGIN
-      PROCESS (BRANCH_OP, REG_1_IN, REG_2_IN)
+      PROCESS (BRANCH_OP, REG_1_IN, REG_2_IN) IS
+			--variable my_line : line;
+			variable out_var : STD_LOGIC := '0';
+			
+			variable r1_signed : SIGNED(31 downto 0);
+			variable r1_unsigned : UNSIGNED(31 downto 0);
+			
+			variable r2_signed : SIGNED(31 downto 0);
+			variable r2_unsigned : UNSIGNED(31 downto 0);
+			
+			
+	
       BEGIN
+			
+			r1_signed := SIGNED(REG_1_IN);
+			r2_signed := SIGNED(REG_2_IN);
+			
+			r1_unsigned := UNSIGNED(REG_1_IN);
+			r2_unsigned := UNSIGNED(REG_2_IN);
+		
 			CASE BRANCH_OP IS
 				WHEN "000" => 
 				-- BEQ
-						SUB_S <= SIGNED(REG_1_IN) - SIGNED(REG_2_IN);
-						IF SUB_S = "000000000000000000000000000000" THEN 
-							DECISION <= '1';
-						ELSE 
-							DECISION <= '0';
+						IF (r1_signed = r2_signed) THEN
+							out_var := '1';
+						ELSE
+							out_var := '0';
 						END IF;
-						 
-				
 				WHEN "001" =>
 				-- BNE
-						SUB_S <= SIGNED(REG_1_IN) - SIGNED(REG_2_IN);
-						IF SUB_S = "000000000000000000000000000000" THEN 
-							DECISION <= '0';
-						ELSE 
-							DECISION <= '1';
+						IF (r1_signed /= r2_signed) THEN
+							out_var := '1';
+						ELSE
+							out_var := '0';
 						END IF;
-				
-				
+						--write(my_line, string'("Hello World"));
+						--writeline(output, my_line);
 				WHEN "100" =>
 				-- BLT
-						SUB_S <= SIGNED(REG_1_IN) - SIGNED(REG_2_IN);
-						IF SUB_S < "000000000000000000000000000000" THEN 
-							DECISION <= '1';
-						ELSE 
-							DECISION <= '0';
-						END IF;
-				
+						IF (r1_signed < r2_signed) THEN
+							out_var := '1';
+						ELSE
+							out_var := '0';
+						END IF;				
 				WHEN "101" =>
 				-- BGE
-						SUB_S <= SIGNED(REG_1_IN) - SIGNED(REG_2_IN);
-						IF SUB_S > "000000000000000000000000000000" OR SUB_S = "000000000000000000000000000000" THEN 
-							DECISION <= '1';
-						ELSE 
-							DECISION <= '0';
+						IF (r1_signed >= r2_signed) THEN
+							out_var := '1';
+						ELSE
+							out_var := '0';
 						END IF;
-				
 				WHEN "110" =>
 				-- BLTU
-						--OP1_UNS <= unsigned(REG_1_IN);
-						--OP2_UNS <= unsigned(REG_2_IN);
-						SUB_U <= UNSIGNED(REG_1_IN) - UNSIGNED(REG_2_IN);
-						IF SUB_U < "000000000000000000000000000000" THEN 
-							DECISION <= '1';
-						ELSE 
-							DECISION <= '0';
+						IF (r1_unsigned < r2_unsigned) THEN
+							out_var := '1';
+						ELSE
+							out_var := '0';
 						END IF;
-						
-				
 				WHEN "111" =>
 				-- BGEU
-						SUB_U <= UNSIGNED(REG_1_IN) - UNSIGNED(REG_2_IN);
-						IF SUB_U > "000000000000000000000000000000" OR SUB_S = "000000000000000000000000000000" THEN 
-							DECISION <= '1';
-						ELSE 
-							DECISION <= '0';
+						IF (r1_unsigned >= r2_unsigned) THEN
+							out_var := '1';
+						ELSE
+							out_var := '0';
 						END IF;
 				
 				WHEN OTHERS => NULL;
 			
 			END CASE;
+			DECISION <= out_var;
       END PROCESS;
 END ARCHITECTURE;
 
