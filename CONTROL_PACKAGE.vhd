@@ -1,0 +1,23 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_signed.all;
+use ieee.numeric_std.all;  
+
+PACKAGE CONTROL_PACKAGE IS
+   COMPONENT CONTROL
+      PORT (
+        Clock, RESET_IN_START	:IN	STD_LOGIC;
+        INSTRUCTION : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+        RESET_OUT   : OUT STD_LOGIC;
+        REGWRITE    : OUT STD_LOGIC;
+        MEMTOREG    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+        MEMWRITE    : OUT STD_LOGIC;
+        MEMREAD     : OUT STD_LOGIC; 
+        BRANCHDOIT  : OUT STD_LOGIC;
+        BRANCHOP    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        ALUSRC      : OUT STD_LOGIC;
+        ALUOP       : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+        IMMTYPE     : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+	);
+   END COMPONENT;
+END CONTROL_PACKAGE;
