@@ -1,0 +1,14 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+PACKAGE PC_PACKAGE IS
+   COMPONENT PC
+   PORT (
+      clock    : IN STD_LOGIC;
+		reset		: IN STD_LOGIC;
+		pc_in		: IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		pc_out	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		pc_next	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		);
+   END COMPONENT;
+END PC_PACKAGE;

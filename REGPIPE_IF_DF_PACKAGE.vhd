@@ -1,0 +1,15 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+PACKAGE REGPIPE_IF_DF_PACKAGE IS
+   COMPONENT REGPIPE_IF_DF 
+   PORT (
+     clock    				: IN STD_LOGIC;
+		Reset						: IN STD_LOGIC;
+		PCIn						: IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      PCOut        			: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		InstructionIn			: IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      InstructionOut       : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+	);
+   END COMPONENT;
+END REGPIPE_IF_DF_PACKAGE;

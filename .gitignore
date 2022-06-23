@@ -1,0 +1,8 @@
+\db
+*
+!.gitignore
+!*.qpf
+!*.qsf
+!*.qws
+!*.vhd
+!*.vhdl
