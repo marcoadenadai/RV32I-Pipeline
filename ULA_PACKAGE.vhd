@@ -3,9 +3,7 @@ USE ieee.std_logic_1164.all;
 
 PACKAGE ULA_PACKAGE IS
    COMPONENT ULA
-      PORT (
-			Clock			:IN	STD_LOGIC;
-			Reset       :IN 	STD_LOGIC;
+      PORT(
 			ULAop			:IN	STD_LOGIC_VECTOR(3 DOWNTO 0);
 			A, B			:IN	STD_LOGIC_VECTOR(31 DOWNTO 0);
 			ULAout 			:OUT STD_LOGIC_VECTOR(31 DOWNTO 0)

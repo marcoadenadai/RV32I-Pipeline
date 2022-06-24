@@ -9,7 +9,9 @@ entity TB_IMM_HANDLER is
 end TB_IMM_HANDLER;
 
 architecture TB_IMM_HANDLER_ARCH of TB_IMM_HANDLER is
+
 	constant PERIODO : time := 10 ns;
+	
 	signal W_CLK : std_logic := '0'; -- deve ser inicializado
 	signal W_RST : std_logic;
 	
