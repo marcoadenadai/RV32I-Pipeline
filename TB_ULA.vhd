@@ -30,7 +30,7 @@ begin
 											W_OUT);
 
 	tb1 : process
-			constant period: time := 100 ns;
+			constant period: time := 10 ns;
 			
 			begin
 			-- AND -------------------------------------------------------------------

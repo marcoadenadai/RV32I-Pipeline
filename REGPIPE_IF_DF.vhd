@@ -23,9 +23,11 @@ ARCHITECTURE REGPIPE_IF_DF_Arch OF REGPIPE_IF_DF IS
 				IF Reset = '1' THEN
 					PcOut <= "00000000000000000000000000000000";
 					InstructionOut <= "00000000000000000000000000000000";
+					
 				ELSE
 					PcOut <= PcIn;
 					InstructionOut <= InstructionIn;
+					
 				END IF;
 				
          END IF;
