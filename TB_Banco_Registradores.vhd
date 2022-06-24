@@ -41,7 +41,7 @@ begin
 	);
 
 	tb1 : process
-			constant period: time := 100 ns;
+			constant period: time := 10 ns;
 			
 			begin
 
@@ -49,33 +49,35 @@ begin
 			Reset <= '1';
 			wait for period;
 			Reset <= '0';
-			wait for period;
+
 			RegWrite <= '0';
 			ReadRegister1 <= "00000"; -- endereço registrador vai ser lido
 			ReadRegister2 <= "00001"; -- endereço registrador vai ser lido
 			wait for period;
-			assert ( (ReadData1 <= "00000000000000000000000000000000" AND ReadData2 = "00000000000000000000000000000000") ) -- expected output
+			assert ( (ReadData1 <= "00000000000000000000000000000000") AND (ReadData2 = "00000000000000000000000000000000") ) -- expected output
 			-- error will be reported if output != expected
 			report "ERRO no Banco de registradores (1)" severity error;
 
-			wait for period;
+			--wait for period;
+			
 			-- Write
 			RegWrite <= '1';
 			ReadRegister2 <= "00001"; -- endereço registrador vai ser lido
 			WriteRegister <= "00001"; -- endereço do registrador que vai ser escrito
 			WriteData <= "11111111111111111111111111111111";
 			wait for period;
-			assert ( (ReadData2 = "11111111111111111111111111111111") ) -- expected output
+			assert ( (ReadData1 <= "00000000000000000000000000000000") AND (ReadData2 = "00000000000000000000000000000000") ) -- expected output
 			-- error will be reported if output != expected
 			report "ERRO no Banco de registradores (2)" severity error;
-
+					
+			
 			-- Teste
 			-- Read
 			RegWrite <= '0';
 			ReadRegister1 <= "00000"; -- endereço registrador vai ser lido
 			ReadRegister2 <= "00001"; -- endereço registrador vai ser lido
 			wait for period;
-			assert ( (ReadData1 <= "00000000000000000000000000000000" AND ReadData2 = "11111111111111111111111111111111") ) -- expected output
+			assert ( (ReadData1 <= "00000000000000000000000000000000") AND (ReadData2 = "11111111111111111111111111111111") ) -- expected output
 			-- error will be reported if output != expected
 			report "ERRO no Banco de registradores (3)" severity error;
 			
