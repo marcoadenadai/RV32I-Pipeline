@@ -19,14 +19,22 @@ ARCHITECTURE RAM_Arch OF RAM IS
     TYPE RAM_VET IS ARRAY (0 TO 63) OF STD_LOGIC_VECTOR (31 DOWNTO 0);  -- 64 X 32 BITS
 	 SIGNAL MEMORIA : RAM_VET;
 	 
-BEGIN
+BEGIN	
+
 	PROCESS(ADDR, clock)
 	BEGIN
 		IF rising_edge(CLOCK) THEN -- Escreve ba descida de clock --CONFERIR DPS SE DA CERTO (SE NÃO DER MUDAR PARA 1)
+		
+			IF RESET = '1' THEN
+				for I in 0 to 63 loop
+					MEMORIA(I) <= "00000000000000000000000000000000";
+				end loop;
+			END IF;
+		
 			IF MEM_WRITE = '1' THEN 
 				MEMORIA(to_integer(ADDR)) <= WRITE_DATA;
 			ELSE
-				IF MEM_READ = '1' THEN
+				IF(MEM_READ = '1') THEN
 					MEM_OUT <= MEMORIA(to_integer(ADDR));
 				END IF;
 			END IF;

@@ -35,16 +35,16 @@ ARCHITECTURE behavior OF CONTROL IS
 		ELSIF rising_edge(Clock) THEN
                   OP_CODE := INSTRUCTION(6 DOWNTO 0);
 			CASE OP_CODE IS --OP_CODE
-				WHEN "1100111" => RESET_OUT  <= '0'; --JALR
-                                  REGWRITE   <= '0';
-                                  MEMTOREG   <= "00";
-                                  MEMWRITE   <= '0';
-                                  MEMREAD    <= '0';
-                                  BRANCHDOIT <= '0';
-                                  BRANCHOP   <= "000";
-                                  ALUSRC     <= '0';
-                                  ALUOP      <= "0000";
-                                  IMMTYPE    <= "000";
+				WHEN "1100111" =>  RESET_OUT  <= '0'; --JALR
+										 REGWRITE   <= '0';
+										 MEMTOREG   <= "00";
+										 MEMWRITE   <= '0';
+										 MEMREAD    <= '0';
+										 BRANCHDOIT <= '0';
+										 BRANCHOP   <= "000";
+										 ALUSRC     <= '0';
+										 ALUOP      <= "0000";
+										 IMMTYPE    <= "000";
 
 				WHEN "0000011" => RESET_OUT  <= '0'; --LOADS
                                     FUNC_3 := INSTRUCTION(15 DOWNTO 13);
