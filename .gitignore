@@ -6,3 +6,8 @@
 !*.qws
 !*.vhd
 !*.vhdl
+!*.MD
+!*.pdf
+!*.png
+!*.jpg
+!DOCs
