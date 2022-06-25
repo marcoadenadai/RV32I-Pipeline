@@ -3,13 +3,13 @@
 
 ## Descrição
 
-Esse repositório armazena um projeto de um processador Risc-V com as específicações [RV32I](https://msyksphinz-self.github.io/riscv-isadoc/html/rvi.html#rv32i-rv64i-instructions), foi utilizado a documentação [riscv-spec-v2.2.pdf](DOCs/riscv-spec-v2.2.pdf). Trata-se de um projeto da disciplina de Arquiteturas de Computadores ministrada pelo professor @AlissonLinhares com o objetivo de exemplificar os conceitos fundamentais sobre arquitetura de compiladores como abstrações e tecnologias computacionais, instruções - linguagem de máquina, operações, operandos, represetações de números, represetações de instruções, operaçÕes lógicas, instruções de tomada de decisões, suporte a procedimentos, modos de endereçamento, paralelismo e instruções : sincronização, tradução e execução de um programa, aritimética para computadores, construção de datapath, processador multiciclo e pipeline, etc..
+Esse repositório armazena um projeto de um processador Risc-V com as específicações [RV32I](https://msyksphinz-self.github.io/riscv-isadoc/html/rvi.html#rv32i-rv64i-instructions), foi utilizado a documentação [riscv-spec-v2.2.pdf](DOCs/riscv-spec-v2.2.pdf). Trata-se de um projeto da disciplina de Arquiteturas de Computadores ministrada pelo professor @AlissonLinhares com o objetivo de exemplificar os conceitos fundamentais sobre arquitetura de compiladores como abstrações e tecnologias computacionais, instruções - linguagem de máquina, operações, operandos, represetações de números, represetações de instruções, operações lógicas, instruções de tomada de decisões, suporte a procedimentos, modos de endereçamento, paralelismo e instruções : sincronização, tradução e execução de um programa, aritimética para computadores, construção de datapath, processador multiciclo e pipeline, etc..
 
 
 ## Documentação
 
 O projeto desse repositório feito em VHDL utilizando o Quartus Prime 20.1 pode ser representado pelo seguinte diagrama (Datapath):
-![Datapath Image](DOCS/Datapath.png)
+![Datapath Image](DOCs/Datapath.png)
 
 
 As instruções e sinais da Unidade de Controle foram mapeados da seguinte forma:
