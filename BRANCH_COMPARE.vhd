@@ -85,6 +85,14 @@ ARCHITECTURE BRANCH_COMPARE_Arch OF BRANCH_COMPARE IS
 						ELSE
 							out_var := '0';
 						END IF;
+						
+				WHEN "010" =>
+				-- JUMP INCONDICIONAL
+						out_var := '1';
+				
+				WHEN "011" =>
+				-- DO NOT BRANCH !!! (AUIPC)
+						out_var := '0';
 				
 				WHEN OTHERS => NULL;
 			
