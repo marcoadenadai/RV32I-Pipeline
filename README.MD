@@ -148,3 +148,7 @@ A tabela abaixo contém os sinais de controle de cada instrução em conjunto co
 [@marcoadenadai](https://github.com/marcoadenadai)
 
 [@RafaelBarbon](https://github.com/RafaelBarbon)
+
+---
+
+Note: To be improved.
