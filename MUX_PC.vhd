@@ -12,18 +12,25 @@ ENTITY MUX_PC IS
 END ENTITY;
 
 ARCHITECTURE MUX_PC_Arch OF MUX_PC IS
-	
+
 	BEGIN
 
-      PROCESS (BRANCH_CONTROL)
-      BEGIN
+	MUX_OUT <= 
+		BRANCH_IN WHEN (BRANCH_CONTROL = '1') ELSE
+		MUX_IN;
+
 		
-         IF BRANCH_CONTROL = '1' THEN
-				MUX_OUT <= BRANCH_IN;
-			ELSE
-				MUX_OUT <= MUX_IN;		
-         END IF;
+
+
+    --   PROCESS (BRANCH_CONTROL)
+    --   BEGIN
+		
+    --      IF BRANCH_CONTROL = '1' THEN
+	-- 			MUX_OUT <= BRANCH_IN;
+	-- 		ELSE
+	-- 			MUX_OUT <= MUX_IN;		
+    --      END IF;
 			
-      END PROCESS;
+    --   END PROCESS;
 		
 END ARCHITECTURE;

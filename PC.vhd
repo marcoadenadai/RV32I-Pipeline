@@ -13,22 +13,20 @@ ENTITY PC IS
 END ENTITY;
 
 ARCHITECTURE PCArch OF PC IS
-	
-	signal current_pc : STD_LOGIC_VECTOR(31 DOWNTO 0);-- := "00000000000000000000000000000000";
-	
+
 	BEGIN
-	
-	 pc_out <= std_logic_vector(current_pc);
-    pc_next <= std_logic_vector(current_pc + 1);
 	
       PROCESS (clock, reset)
       BEGIN
 		
          IF rising_edge(clock) THEN
 				IF Reset = '1' THEN
-					current_pc <= "00000000000000000000000000000000";
+					pc_out <= "00000000000000000000000000000000";
+					pc_next <= "00000000000000000000000000000001";
+
 				ELSE
-					current_pc <= pc_in;
+					pc_out <= pc_in;
+					pc_next <= std_logic_vector(pc_in + 1);
 				END IF;
 				
          END IF;

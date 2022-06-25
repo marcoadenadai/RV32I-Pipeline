@@ -1,7 +1,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
+use ieee.numeric_std.all;  
 USE ieee.std_logic_signed.all;
-use ieee.numeric_std.all;
 
 ENTITY CONTROL IS
     PORT(
@@ -149,7 +149,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                     FUNC_3 := INSTRUCTION(15 DOWNTO 13);
                                     CASE FUNC_3 IS 
                                             WHEN "000" => 
-                                                          REGWRITE   <= '0';
+                                                          REGWRITE   <= '1';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
                                                           MEMREAD    <= '0';
@@ -160,7 +160,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           IMMTYPE    <= "011";
 
                                             WHEN "010" => 
-                                                          REGWRITE   <= '0';
+                                                          REGWRITE   <= '1';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
                                                           MEMREAD    <= '0';
@@ -171,7 +171,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           IMMTYPE    <= "011";
 
                                             WHEN "011" => 
-                                                          REGWRITE   <= '0';
+                                                          REGWRITE   <= '1';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
                                                           MEMREAD    <= '0';
@@ -182,7 +182,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           IMMTYPE    <= "011";
 
                                           WHEN "100" => 
-                                                          REGWRITE   <= '0';
+                                                          REGWRITE   <= '1';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
                                                           MEMREAD    <= '0';
@@ -193,7 +193,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           IMMTYPE    <= "011";
 
                                           WHEN "110" => 
-                                                          REGWRITE   <= '0';
+                                                          REGWRITE   <= '1';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
                                                           MEMREAD    <= '0';
@@ -204,7 +204,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           IMMTYPE    <= "011";
 
                                           WHEN "111" => 
-                                                          REGWRITE   <= '0';
+                                                          REGWRITE   <= '1';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
                                                           MEMREAD    <= '0';
@@ -215,7 +215,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           IMMTYPE    <= "011";
 
                                           WHEN "001" => 
-                                                          REGWRITE   <= '0';
+                                                          REGWRITE   <= '1';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
                                                           MEMREAD    <= '0';
@@ -228,7 +228,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                           WHEN "101" => 
                                                       FUNC_7 := INSTRUCTION(31 DOWNTO 25);
                                                       IF FUNC_7 = "0000000" THEN --SRLI //OK
-                                                            REGWRITE   <= '0';
+                                                            REGWRITE   <= '1';
                                                             MEMTOREG   <= "01";
                                                             MEMWRITE   <= '0';
                                                             MEMREAD    <= '0';
@@ -238,7 +238,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                             ALUOP      <= "0110";
                                                             IMMTYPE    <= "011";
                                                       ELSE  --SRAI //OK
-                                                            REGWRITE   <= '0';
+                                                            REGWRITE   <= '1';
                                                             MEMTOREG   <= "01";
                                                             MEMWRITE   <= '0';
                                                             MEMREAD    <= '0';
@@ -282,17 +282,6 @@ ARCHITECTURE behavior OF CONTROL IS
                                   BRANCHDOIT <= '1';
                                   BRANCHOP   <= "011";
                                   ALUSRC     <= '1';
-                                  ALUOP      <= "0000";
-                                  IMMTYPE    <= "000";
-
-				WHEN "0100011" => 
-                                  REGWRITE   <= '0';
-                                  MEMTOREG   <= "00";
-                                  MEMWRITE   <= '0';
-                                  MEMREAD    <= '0';
-                                  BRANCHDOIT <= '0';
-                                  BRANCHOP   <= "000";
-                                  ALUSRC     <= '0';
                                   ALUOP      <= "0000";
                                   IMMTYPE    <= "000";
 

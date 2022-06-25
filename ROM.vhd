@@ -51,7 +51,9 @@ BEGIN
 				-- C:\Users\Marco\Desktop\tools\input_assembly\nosso_teste01.txt
 				CASE fio_addr IS
 				
-					WHEN "00000000000000000000000000000000" => result := "00000000101000000000000100010011"; -- addi 	x2,x0,10
+				-- 000000001010 00000 000 00010 0010011
+				
+					WHEN "00000000000000000000000000000000" => result := "00000000101000000000000100010011"; -- addi 	x2,x0,10 
 					WHEN "00000000000000000000000000000001" => result := "00000000000000000000000010110011"; -- add 	x1,x0,x0
 					WHEN "00000000000000000000000000000010" => result := "00000000001100001000000010110011"; -- add 	x3,x1,x2
 					when others => NULL; -- tem que trocar isso aqui pra nao ter mais warning

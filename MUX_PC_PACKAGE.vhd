@@ -1,5 +1,6 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
+USE ieee.std_logic_signed.all;
 
 PACKAGE MUX_PC_PACKAGE IS
    COMPONENT MUX_PC 

@@ -63,8 +63,8 @@ architecture TB_PROCESSADOR_ARCH of TB_PROCESSADOR is
 	
 	-- Signals PC
 		signal W_PC_IN								: STD_LOGIC_VECTOR(31 downto 0) := "00000000000000000000000000000000";
-		signal W_PC_OUT								: STD_LOGIC_VECTOR(31 downto 0);
-		signal W_PC_NEXT_OUT 						: STD_LOGIC_VECTOR(31 downto 0);
+		signal W_PC_OUT								: STD_LOGIC_VECTOR(31 downto 0)  := "00000000000000000000000000000000";
+		signal W_PC_NEXT_OUT 						: STD_LOGIC_VECTOR(31 downto 0)  := "00000000000000000000000000000001";
 
 		
 	-- Signals ROM
@@ -153,9 +153,9 @@ architecture TB_PROCESSADOR_ARCH of TB_PROCESSADOR is
 
 	
 	-- Signals AND_BRANCH
-		signal W_BRANCH_DO_IT       				: STD_LOGIC;
-		signal W_COMPARE_BRANCH_OUT					: STD_LOGIC;
-		signal W_AND_OUT							: STD_LOGIC;
+		signal W_BRANCH_DO_IT       				: STD_LOGIC := '0';
+		signal W_COMPARE_BRANCH_OUT					: STD_LOGIC := '0';
+		signal W_AND_OUT							: STD_LOGIC := '0';
 
 	-- signals RAM
 		signal W_RAM_OUT		 					: STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -253,14 +253,29 @@ BEGIN
 			constant period: time := 100 ns;
 			
 			begin
-			
+
+			W_MUX_OUT <= "00000000000000000000000000000000";
 			W_RST <= '1';
+
 			wait for period;
+
 			W_RST <= '0';
+
 			wait for period;
+
+
 			wait for period;
+
+
 			wait for period;
+
+
 			wait for period;
+
+
+			wait for period;
+
+			
 			wait for period;
 			wait for period;
 			wait for period;
