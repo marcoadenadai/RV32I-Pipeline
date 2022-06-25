@@ -2,48 +2,32 @@ library IEEE;
 use IEEE.std_logic_1164.ALL; -- tipos std_logic e std_logic_vector
 use IEEE.numeric_std.ALL; -- tipos unsigned e signed
 use std.textio.ALL; -- deve ser incluido para uso de arquivos
-LIBRARY work;
-
-USE work.CONTROL_PACKAGE.all;
-
-USE work.MUX_PC_PACKAGE.all;
-
-USE work.PC_PACKAGE.all;
-
-USE work.ROM_PACKAGE.all;
-
-USE work.REGPIPE_IF_DF_PACKAGE.all;
-
-USE work.BancoRegistradores_PACKAGE.all;
-
-USE work.REGPIPE_ID_EX_PACKAGE.all;
-
-USE work.BRANCH_COMPARE_PACKAGE.all;
-
-USE work.MUX_ALU_1_PACKAGE.all;
-
-USE work.MUX_ALU_2_PACKAGE.all;
-
-USE work.ULA_PACKAGE.all;
-
-USE work.IMM_HANDLER_PACKAGE.all;
-
-USE work.REGPIPE_EX_MEM_PACKAGE.all;
-
-USE work.AND_BRANCH_PACKAGE.all;
-
+library work;
 USE work.RAM_PACKAGE.all;
-
+USE work.CONTROL_PACKAGE.all;
+USE work.MUX_PC_PACKAGE.all;
+USE work.PC_PACKAGE.all;
+USE work.ROM_PACKAGE.all;
+USE work.REGPIPE_IF_DF_PACKAGE.all;
+USE work.BancoRegistradores_PACKAGE.all;
+USE work.REGPIPE_ID_EX_PACKAGE.all;
+USE work.BRANCH_COMPARE_PACKAGE.all;
+USE work.MUX_ALU_1_PACKAGE.all;
+USE work.MUX_ALU_2_PACKAGE.all;
+USE work.ULA_PACKAGE.all;
+USE work.IMM_HANDLER_PACKAGE.all;
+USE work.REGPIPE_EX_MEM_PACKAGE.all;
+USE work.AND_BRANCH_PACKAGE.all;
+USE work.RAM_PACKAGE.all;
 USE work.REGPIPE_MEM_WB_PACKAGE.all;
+USE work.MUX_MEM_TO_REG_PACKAGE.all; 
 
-USE work.MUX_MEM_TO_REG_PACKAGE.all;
- 
 entity TB_PROCESSADOR is
 end TB_PROCESSADOR;
 
 architecture TB_PROCESSADOR_ARCH of TB_PROCESSADOR is
 	-- CONSTANTES -------------------------------------------------------------
-		constant PERIODO : time := 10 ns;
+		constant PERIODO : time := 100 ns;
 	
 	-- SIGNALS ----------------------------------------------------------------
 
@@ -58,12 +42,12 @@ architecture TB_PROCESSADOR_ARCH of TB_PROCESSADOR is
 		 W_BRANCH_DO_IT_OUT, 
 		 W_ALU_SRC_OUT, 
 		 W_MEM_WRITE_OUT							: STD_LOGIC;
-		signal W_MEM_TO_REG_OUT						: STD_LOGIC_VECTOR(1 DOWNTO 0);
+		signal W_MEM_TO_REG_OUT				 		: STD_LOGIC_VECTOR(1 DOWNTO 0);
 		signal W_BRANCHOP_OUT, IMM_TYPE_OUT			: STD_LOGIC_VECTOR(2 DOWNTO 0);
 		signal W_ALU_OP_OUT							: STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 	-- MUX ALU 1
-		signal W_MUX_OUT_ALU_1 						: STD_LOGIC_VECTOR(31 DOWNTO 0);
+		signal W_MUX_OUT_ALU_1 						: STD_LOGIC_VECTOR(31 DOWNTO 0); 
 
 	--MUX ALU 2
 		signal W_MUX_OUT_ALU_2 						: STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -73,7 +57,9 @@ architecture TB_PROCESSADOR_ARCH of TB_PROCESSADOR is
 		signal W_BRANCH_CONTROL 					: STD_LOGIC := '0';
 		signal W_MUX_IN 							: STD_LOGIC_VECTOR(31 DOWNTO 0) := "00000000000000000000000000000000";
 		signal W_BRANCH_IN 							: STD_LOGIC_VECTOR(31 DOWNTO 0) := "00000000000000000000000000000000";
-		signal W_MUX_OUT							: STD_LOGIC_VECTOR(31 DOWNTO 0);
+		signal W_MUX_OUT							: STD_LOGIC_VECTOR(31 DOWNTO 0) := "00000000000000000000000000000000"; -- NESSE CASO EH EXCECAO
+		-- ESSA OUT ^ ^ precisa ser inicializada pois eh oq da o start no PC = 0  --- <<--------------- TUDO COMECA AQUI , START !!!
+		
 	
 	-- Signals PC
 		signal W_PC_IN								: STD_LOGIC_VECTOR(31 downto 0) := "00000000000000000000000000000000";
@@ -264,10 +250,22 @@ BEGIN
 
 								
 	tb1 : process
-			constant period: time := 10 ns;
+			constant period: time := 100 ns;
 			
 			begin
 			
+			W_RST <= '1';
+			wait for period;
+			W_RST <= '0';
+			wait for period;
+			wait for period;
+			wait for period;
+			wait for period;
+			wait for period;
+			wait for period;
+			wait for period;
+			wait for period;
+			wait for period;
 --			W_RST <= '1';
 --			wait for period;
 --			W_RST <= '0';
