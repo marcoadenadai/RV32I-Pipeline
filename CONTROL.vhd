@@ -7,7 +7,6 @@ ENTITY CONTROL IS
     PORT(
             Clock, RESET_IN_START	:IN	STD_LOGIC;
             INSTRUCTION : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
-            RESET_OUT   : OUT STD_LOGIC;
             REGWRITE    : OUT STD_LOGIC;
             MEMTOREG    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
             MEMWRITE    : OUT STD_LOGIC;
@@ -30,12 +29,12 @@ ARCHITECTURE behavior OF CONTROL IS
             
 
             IF RESET_IN_START = '1' THEN
-                  RESET_OUT <= '1';
+                  
 
 		ELSIF rising_edge(Clock) THEN
                   OP_CODE := INSTRUCTION(6 DOWNTO 0);
 			CASE OP_CODE IS --OP_CODE
-				WHEN "1100111" =>  RESET_OUT  <= '0'; --JALR //OK
+				WHEN "1100111" =>  
 										 REGWRITE   <= '1';
 										 MEMTOREG   <= "10";
 										 MEMWRITE   <= '0';
@@ -46,10 +45,10 @@ ARCHITECTURE behavior OF CONTROL IS
 										 ALUOP      <= "0000";
 										 IMMTYPE    <= "011";
 
-				WHEN "0000011" => RESET_OUT  <= '0'; --LOADS
+				WHEN "0000011" => 
                                     FUNC_3 := INSTRUCTION(15 DOWNTO 13);
                                     CASE FUNC_3 IS 
-                                            WHEN "000" => RESET_OUT  <= '0';  --LB //OK
+                                            WHEN "000" => 
                                                           REGWRITE   <= '1';
                                                           MEMTOREG   <= "00";
                                                           MEMWRITE   <= '0';
@@ -60,7 +59,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           ALUOP      <= "0000";
                                                           IMMTYPE    <= "011";
 
-                                            WHEN "001" => RESET_OUT  <= '0';  --LH //OK
+                                            WHEN "001" => 
                                                           REGWRITE   <= '1';
                                                           MEMTOREG   <= "00";
                                                           MEMWRITE   <= '0';
@@ -71,7 +70,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           ALUOP      <= "0000";
                                                           IMMTYPE    <= "011";
 
-                                            WHEN "010" => RESET_OUT  <= '0';  --LW //OK
+                                            WHEN "010" => 
                                                           REGWRITE   <= '1';
                                                           MEMTOREG   <= "00";
                                                           MEMWRITE   <= '0';
@@ -82,7 +81,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           ALUOP      <= "0000";
                                                           IMMTYPE    <= "011";
 
-                                           WHEN "100" => RESET_OUT  <= '0';  --LBU //OK
+                                           WHEN "100" => 
                                                           REGWRITE   <= '1';
                                                           MEMTOREG   <= "00";
                                                           MEMWRITE   <= '0';
@@ -93,7 +92,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           ALUOP      <= "0000";
                                                           IMMTYPE    <= "011";
 
-                                            WHEN "101" => RESET_OUT  <= '0';  --LHU //OK
+                                            WHEN "101" => 
                                                           REGWRITE   <= '1';
                                                           MEMTOREG   <= "00";
                                                           MEMWRITE   <= '0';
@@ -110,7 +109,7 @@ ARCHITECTURE behavior OF CONTROL IS
 				WHEN "0100011" => --TIPO S 
                                   FUNC_3 := INSTRUCTION(15 DOWNTO 13);
                                   CASE FUNC_3 IS 
-                                          WHEN "000" => RESET_OUT  <= '0';  --SB //OK
+                                          WHEN "000" => 
                                                         REGWRITE   <= '0';
                                                         --MEMTOREG   <= "00";
                                                         MEMWRITE   <= '1';
@@ -121,7 +120,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                         ALUOP      <= "0000";
                                                         IMMTYPE    <= "100";
 
-                                          WHEN "001" => RESET_OUT  <= '0';  --SH //OK
+                                          WHEN "001" => 
                                                         REGWRITE   <= '0';
                                                         --MEMTOREG   <= "00";
                                                         MEMWRITE   <= '1';
@@ -132,7 +131,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                         ALUOP      <= "0000";
                                                         IMMTYPE    <= "100";
 
-                                          WHEN "010" => RESET_OUT  <= '0';  --SW //OK
+                                          WHEN "010" => 
                                                         REGWRITE   <= '0';
                                                         --MEMTOREG   <= "00";
                                                         MEMWRITE   <= '1';
@@ -149,7 +148,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                     WHEN "0010011" => --TIPO I
                                     FUNC_3 := INSTRUCTION(15 DOWNTO 13);
                                     CASE FUNC_3 IS 
-                                            WHEN "000" => RESET_OUT  <= '0';  --ADDI //OK
+                                            WHEN "000" => 
                                                           REGWRITE   <= '0';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
@@ -160,7 +159,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           ALUOP      <= "0000";
                                                           IMMTYPE    <= "011";
 
-                                            WHEN "010" => RESET_OUT  <= '0';  --SLTI //OK
+                                            WHEN "010" => 
                                                           REGWRITE   <= '0';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
@@ -171,7 +170,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           ALUOP      <= "0011";
                                                           IMMTYPE    <= "011";
 
-                                            WHEN "011" => RESET_OUT  <= '0';  --SLTIU //OK
+                                            WHEN "011" => 
                                                           REGWRITE   <= '0';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
@@ -182,7 +181,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           ALUOP      <= "0100";
                                                           IMMTYPE    <= "011";
 
-                                          WHEN "100" => RESET_OUT  <= '0';  --XORI //OK
+                                          WHEN "100" => 
                                                           REGWRITE   <= '0';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
@@ -193,7 +192,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           ALUOP      <= "0101";
                                                           IMMTYPE    <= "011";
 
-                                          WHEN "110" => RESET_OUT  <= '0';  --ORI //OK
+                                          WHEN "110" => 
                                                           REGWRITE   <= '0';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
@@ -204,7 +203,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           ALUOP      <= "1000";
                                                           IMMTYPE    <= "011";
 
-                                          WHEN "111" => RESET_OUT  <= '0';  --ANDI //OK
+                                          WHEN "111" => 
                                                           REGWRITE   <= '0';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
@@ -215,7 +214,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           ALUOP      <= "1001";
                                                           IMMTYPE    <= "011";
 
-                                          WHEN "001" => RESET_OUT  <= '0';  --SLLI //OK
+                                          WHEN "001" => 
                                                           REGWRITE   <= '0';
                                                           MEMTOREG   <= "01";
                                                           MEMWRITE   <= '0';
@@ -226,7 +225,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                           ALUOP      <= "0010";
                                                           IMMTYPE    <= "011";
 
-                                          WHEN "101" => RESET_OUT  <= '0';  --SRLI / SRAI 
+                                          WHEN "101" => 
                                                       FUNC_7 := INSTRUCTION(31 DOWNTO 25);
                                                       IF FUNC_7 = "0000000" THEN --SRLI //OK
                                                             REGWRITE   <= '0';
@@ -253,7 +252,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                             WHEN OTHERS => NULL;
                                       END CASE;
 
-				WHEN "1101111" => RESET_OUT  <= '0'; --JAL //OK
+				WHEN "1101111" => 
                                   REGWRITE   <= '1';
                                   MEMTOREG   <= "10";
                                   MEMWRITE   <= '0';
@@ -264,7 +263,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                   ALUOP      <= "0000";
                                   IMMTYPE    <= "001";
 
-				WHEN "0110111" => RESET_OUT  <= '0'; --LUI //OK
+				WHEN "0110111" => 
                                   REGWRITE   <= '1';
                                   MEMTOREG   <= "01";
                                   MEMWRITE   <= '0';
@@ -275,7 +274,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                   ALUOP      <= "1010";
                                   IMMTYPE    <= "000";
 
-				WHEN "0010111" => RESET_OUT  <= '0'; --AUIPC //OK
+				WHEN "0010111" => 
                                   REGWRITE   <= '1';
                                   MEMTOREG   <= "01";
                                   MEMWRITE   <= '0';
@@ -286,7 +285,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                   ALUOP      <= "0000";
                                   IMMTYPE    <= "000";
 
-				WHEN "0100011" => RESET_OUT  <= '0'; --STORES
+				WHEN "0100011" => 
                                   REGWRITE   <= '0';
                                   MEMTOREG   <= "00";
                                   MEMWRITE   <= '0';
@@ -297,7 +296,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                   ALUOP      <= "0000";
                                   IMMTYPE    <= "000";
 
-				WHEN "0110011" => RESET_OUT  <= '0';  --TIPO R
+				WHEN "0110011" => 
                                     FUNC_3 := INSTRUCTION(15 DOWNTO 13);
                                     CASE FUNC_3 IS 
                                           WHEN "000" => 
@@ -324,7 +323,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                             --IMMTYPE    <= "000";
                                                       END IF;
 
-                                          WHEN "001" => RESET_OUT  <= '0'; --SLL //OK
+                                          WHEN "001" => 
                                                         REGWRITE   <= '1';
                                                         MEMTOREG   <= "01";
                                                         MEMWRITE   <= '0';
@@ -335,7 +334,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                         ALUOP      <= "0010";
                                                         --IMMTYPE    <= "000";
 
-                                          WHEN "010" => RESET_OUT  <= '0';  --SLT //OK
+                                          WHEN "010" => 
                                                         REGWRITE   <= '1';
                                                         MEMTOREG   <= "01";
                                                         MEMWRITE   <= '0';
@@ -346,7 +345,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                         ALUOP      <= "0011";
                                                         --IMMTYPE    <= "000";
 
-                                          WHEN "011" => RESET_OUT  <= '0'; --SLTU //OK
+                                          WHEN "011" => 
                                                         REGWRITE   <= '1';
                                                         MEMTOREG   <= "01";
                                                         MEMWRITE   <= '0';
@@ -357,7 +356,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                         ALUOP      <= "0100";
                                                         --IMMTYPE    <= "000";
 
-                                          WHEN "100" => RESET_OUT  <= '0';  --XOR //OK
+                                          WHEN "100" => 
                                                         REGWRITE   <= '1';
                                                         MEMTOREG   <= "01";
                                                         MEMWRITE   <= '0';
@@ -392,7 +391,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                             --IMMTYPE    <= "000";
                                                       END IF;
 
-                                          WHEN "110" => RESET_OUT  <= '0';  --OR //OK
+                                          WHEN "110" => 
                                                       REGWRITE   <= '1';
                                                       MEMTOREG   <= "01";
                                                       MEMWRITE   <= '0';
@@ -403,7 +402,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                       ALUOP      <= "1000";
                                                       --IMMTYPE    <= "000";
 
-                                          WHEN "111" => RESET_OUT  <= '0';  --AND //OK
+                                          WHEN "111" => 
                                                       REGWRITE   <= '1';
                                                       MEMTOREG   <= "01";
                                                       MEMWRITE   <= '0';
@@ -416,10 +415,10 @@ ARCHITECTURE behavior OF CONTROL IS
 
                                           WHEN OTHERS => NULL;
                                     END CASE;
-                        WHEN "1100011" => RESET_OUT  <= '0';  --TIPO B
+                        WHEN "1100011" => 
                                     FUNC_3 := INSTRUCTION(15 DOWNTO 13);
                                     CASE FUNC_3 IS 
-                                          WHEN "000" => RESET_OUT  <= '0';  --BEQ //OK
+                                          WHEN "000" => 
                                                         REGWRITE   <= '0';
                                                         --MEMTOREG   <= "00";
                                                         MEMWRITE   <= '0';
@@ -430,7 +429,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                         ALUOP      <= "0000";
                                                         IMMTYPE    <= "010";
 
-                                          WHEN "001" => RESET_OUT  <= '0';  --BNE //OK
+                                          WHEN "001" => 
                                                         REGWRITE   <= '0';
                                                         --MEMTOREG   <= "00";
                                                         MEMWRITE   <= '0';
@@ -441,7 +440,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                         ALUOP      <= "0000";
                                                         IMMTYPE    <= "010";
 
-                                          WHEN "100" => RESET_OUT  <= '0';  --BLT //OK
+                                          WHEN "100" => 
                                                         REGWRITE   <= '0';
                                                         --MEMTOREG   <= "00";
                                                         MEMWRITE   <= '0';
@@ -452,7 +451,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                         ALUOP      <= "0000";
                                                         IMMTYPE    <= "010";
 
-                                          WHEN "101" => RESET_OUT  <= '0';  --BGE //OK
+                                          WHEN "101" => 
                                                         REGWRITE   <= '0';
                                                         --MEMTOREG   <= "00";
                                                         MEMWRITE   <= '0';
@@ -463,7 +462,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                         ALUOP      <= "0000";
                                                         IMMTYPE    <= "010";
 
-                                          WHEN "110" => RESET_OUT  <= '0';  --BLTU //OK
+                                          WHEN "110" => 
                                                         REGWRITE   <= '0';
                                                         --MEMTOREG   <= "00";
                                                         MEMWRITE   <= '0';
@@ -474,7 +473,7 @@ ARCHITECTURE behavior OF CONTROL IS
                                                         ALUOP      <= "0000";
                                                         IMMTYPE    <= "010";
 
-                                          WHEN "111" => RESET_OUT  <= '0';  --BGEU //OK
+                                          WHEN "111" => 
                                                         REGWRITE   <= '0';
                                                         --MEMTOREG   <= "00";
                                                         MEMWRITE   <= '0';
