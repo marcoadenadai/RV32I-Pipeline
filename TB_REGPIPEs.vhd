@@ -53,12 +53,12 @@ architecture TB_REGPIPEs_ARCH of TB_REGPIPEs is
 	--inputs--
 	--	>> W_PC_OUT2
 	--	>> W_R2_OUT2
-	signal W_BRANCH  	: STDLOGIC := '0'; 																		-- DEFINIR VALORES p/ TESTE
+	signal W_BRANCH  	: STD_LOGIC := '0'; 																		-- DEFINIR VALORES p/ TESTE
 	signal W_ULA		: STD_LOGIC_VECTOR(31 DOWNTO 0) := "00000000000000000000000000000000";	-- DEFINIR VALORES p/ TESTE
 	signal W_RD		: STD_LOGIC_VECTOR(4 DOWNTO 0) := "00000"; 											-- DEFINIR VALORES p/ TESTE
 	
 	--outputs--
-	signal W_BRANCH_OUT3	: STDLOGIC := '0';
+	signal W_BRANCH_OUT3	: STD_LOGIC := '0';
 	
 	signal W_PC_OUT3 : STD_LOGIC_VECTOR(31 downto 0);
 	signal W_INST_OUT3 : STD_LOGIC_VECTOR(31 downto 0);	
@@ -82,6 +82,7 @@ architecture TB_REGPIPEs_ARCH of TB_REGPIPEs is
 	signal W_PC_OUT4 : STD_LOGIC_VECTOR(31 downto 0);
 	signal W_RAM_OUT4 : STD_LOGIC_VECTOR(31 downto 0);
 	signal W_ULA_OUT4	: STD_LOGIC_VECTOR(31 DOWNTO 0);
+	signal W_RD_OUT4 : STD_LOGIC_VECTOR(31 downto 0);
 	
 	
 	---------------------------------------

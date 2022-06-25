@@ -15,18 +15,50 @@ END ENTITY;
 ARCHITECTURE ULA_Arch OF ULA IS
 
 BEGIN
-	
-	WITH ULAop SELECT
-		ULAout <= 	A AND B WHEN "0000",
-						A OR B WHEN "0001",
-						A + B WHEN "0010",
-						A - B WHEN "0011",
-						A XOR B WHEN "0100",
-						std_logic_vector(shift_left(signed(A), to_integer(unsigned(B)))) WHEN "0101", --   <<= shift left aritmetico
-						std_logic_vector(shift_right(signed(A), to_integer(unsigned(B)))) WHEN "0110", --  >>= shift right aritmetico
-						std_logic_vector(shift_left(unsigned(A), to_integer(unsigned(B)))) WHEN "0111", --   << shift left logico
-						std_logic_vector(shift_right(unsigned(A), to_integer(unsigned(B)))) WHEN "1000", --  >> shift right logico
-						B WHEN "1001",  -- BYPASS
-						"ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ" WHEN others;
+						
+	PROCESS (ULAop, A, B)
+		
+		begin
+		
+		CASE ULAOp is
+			-- ADD
+			WHEN "0000" => ULAout <= A + B;
+			-- SUB
+			WHEN "0001" => ULAout <= A - B;
+			-- SLL
+			WHEN "0010" => ULAout <= std_logic_vector(shift_left(unsigned(A), to_integer(unsigned(B))));
+			-- SLT
+			WHEN "0011" => IF A < B THEN
+									ULAout <= "00000000000000000000000000000001";
+								ELSE
+									ULAout <= "00000000000000000000000000000000";
+								END IF;
+			-- SLTU
+			WHEN "0100" => IF UNSIGNED(A) < UNSIGNED(B) THEN
+									ULAout <= "00000000000000000000000000000001";
+								ELSE
+									ULAout <= "00000000000000000000000000000000";
+								END IF;
+			-- XOR
+			WHEN "0101" => ULAout <= A XOR B;
+			-- SRL
+			WHEN "0110" => ULAout <= std_logic_vector(shift_right(unsigned(A), to_integer(unsigned(B))));
+			-- SRA
+			WHEN "0111" => ULAout <= std_logic_vector(shift_right(signed(A), to_integer(unsigned(B))));
+			-- OR
+			WHEN "1000" => ULAout <= A OR B;
+			-- AND
+			WHEN "1001" => ULAout <= A AND B;
+			-- BYPASS (B)
+			WHEN "1010" => ULAout <= B;
+--			WHEN "1011" => ;
+--			WHEN "1100" => ;
+--			WHEN "1101" => ;
+--			WHEN "1110" => ;
+--			WHEN "1111" => ;
+			WHEN others => ULAout <= "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";
+		END CASE;
+		
+	END PROCESS;
 
 END ARCHITECTURE;	
